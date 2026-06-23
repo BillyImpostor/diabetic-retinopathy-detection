@@ -1,0 +1,5 @@
+# Mendaftarkan file .h5 agar diunggah menggunakan Git LFS
+models/*.h5 filter=lfs diff=lfs merge=lfs -text
+
+# Menyembunyikan folder notebooks dari statistik bahasa GitHub
+notebooks/** linguist-documentation=true

@@ -1,0 +1,17 @@
+# Mengabaikan folder Virtual Environment lokal
+venv/
+.venv/
+env/
+
+# Mengabaikan file model .h5 (Selain EfficientNetB4)
+models/best_densenet121.h5
+models/best_resnet50v2.h5
+
+# Mengabaikan folder cache Python & Streamlit
+__pycache__/
+*.pyc
+.streamlit/runtime_state.toml
+
+# Mengabaikan file sistem operasi
+.DS_Store
+Thumbs.db
