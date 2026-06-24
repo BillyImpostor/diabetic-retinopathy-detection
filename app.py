@@ -4,9 +4,10 @@ import numpy as np
 from PIL import Image
 
 # 1. Konfigurasi Halaman & Branding
+logo_icon = Image.open("logo.png")
 st.set_page_config(
-    page_title="RetinaCheck - AI Diagnostic",
-    page_icon="👁️",
+    page_title="RetinaCheck - DR Detection",
+    page_icon=logo_icon,
     layout="wide"
 )
 
@@ -32,16 +33,16 @@ except Exception as e:
 # 3. Definisikan Label Medis
 labels = ['No_DR', 'Mild', 'Moderate', 'Severe', 'Proliferative_DR']
 penjelasan = {
-    'No_DR': 'Kondisi retina normal. Tidak ditemukan tanda kerusakan akibat diabetes.',
-    'Mild': 'Tingkat awal. Muncul mikroaneurisma kecil pada pembuluh darah retina.',
-    'Moderate': 'Tingkat menengah. Pendarahan retina lebih terlihat jelas.',
-    'Severe': 'Tingkat berat. Aliran darah ke retina mulai terhambat secara kritis.',
-    'Proliferative_DR': 'Tahap paling parah. Risiko kehilangan penglihatan permanen sangat tinggi.'
+    'No_DR': '**Kondisi retina normal**. Tidak ditemukan tanda kerusakan akibat diabetes.',
+    'Mild': '**Tingkat awal**. Muncul mikroaneurisma kecil pada pembuluh darah retina.',
+    'Moderate': '**Tingkat menengah**. Pendarahan retina lebih terlihat jelas.',
+    'Severe': '**Tingkat berat**. Aliran darah ke retina mulai terhambat secara kritis.',
+    'Proliferative_DR': '**Tahap paling parah**. Risiko kehilangan penglihatan permanen sangat tinggi.'
 }
 
 # 4. Interface Utama Website
 st.title("Selamat Datang di **RetinaCheck**")
-st.write("Silakan unggah citra fundus retina mata mentah untuk analisis tingkat keparahan.")
+st.write("Silakan unggah citra fundus retina mata untuk memulai analisis tingkat keparahan.")
 
 col1, col2 = st.columns([1, 1])
 
@@ -77,7 +78,7 @@ with col2:
                 st.write(f"{labels[i]}: {prob:.1f}%")
                 st.progress(int(prob))
     else:
-        st.info("Silakan unggah gambar fundus mata di kolom sebelah kiri untuk memulai diagnosis.")
+        st.info("Silakan unggah citra fundus retina mata pada bagian **Upload** untuk memulai diagnosis.")
 
 st.divider()
-st.caption("⚠️ **Catatan Penafian:** Hasil analisis ini murni berbasis kecerdasan buatan (AI) sebagai alat bantu awal. Harap konsultasikan kembali dengan Dokter Spesialis Mata untuk diagnosis medis resmi.")
+st.caption("⚠️ **Catatan:** Hasil analisis ini murni berbasis kecerdasan buatan (AI) sebagai deteksi awal. Harap konsultasikan kembali dengan Dokter Spesialis Mata untuk diagnosis lebih lanjut!")
